@@ -1,0 +1,41 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'notes.css' %}">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>📝 Welcome to {{user.username}} Notes</h1>
+
+        <!-- Add New Note -->
+        <form method="POST">
+            {% csrf_token %}
+            <textarea placeholder="Write your note here..." name="note"></textarea>
+            <button type="submit">Add Note</button>
+        </form>
+
+
+        <!-- Display Notes -->
+        <div id="notes-list">
+            {% for note in notes %}
+            <div class="note">
+                <p>{{note.content}}</p>
+                <a href="{% url 'delete' note.id %}?next=index">
+                <button class="delete-btn">❌</button>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+        <a href="all_notes">
+            <button>SEE ALL</button>
+        </a>
+    </div>
+
+</body>
+</html>
