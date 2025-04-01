@@ -1,2 +1,2 @@
-#Basic Notes App
+#Basic Notes App<br>
 CSS from chatgpt
