@@ -1,1 +1,2 @@
-2nd project (Css from chatgpt)
+#Basic Notes App
+CSS from chatgpt
